@@ -2,25 +2,21 @@ function DepositWithdrawBalance(inputId, amount, isAddition) {
     const inputField = document.getElementById(inputId);
     const inputAmountText = inputField.value;
     const inputAmount = parseFloat(inputAmountText);
-    
+    const specificTotalAmountText = document.getElementById(amount).innerText;
+    const specificTotalAmount = parseFloat(specificTotalAmountText);
     const totalBalanceText = document.getElementById('total-balance').innerText;
     const totalBalance = parseFloat(totalBalanceText);
 
         if(inputAmount > 0) {
             if(isAddition == true) {
-                const specificTotalAmountText = document.getElementById(amount).innerText;
-                const specificTotalAmount = parseFloat(specificTotalAmountText);
                 document.getElementById(amount).innerText = specificTotalAmount + inputAmount;
                 document.getElementById('total-balance').innerText = totalBalance + inputAmount;
             }
             else if(isAddition == false  && inputAmount <= totalBalance) {
-                const specificTotalAmountText = document.getElementById(amount).innerText;
-                const specificTotalAmount = parseFloat(specificTotalAmountText);
                 document.getElementById(amount).innerText = specificTotalAmount + inputAmount;
                 document.getElementById('total-balance').innerText = totalBalance - inputAmount;
             }
         }
-
     inputField.value = '';
 }
 
